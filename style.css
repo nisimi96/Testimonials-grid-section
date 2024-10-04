@@ -1,0 +1,239 @@
+:root {
+    --Moderate-violet: hsl(263, 55%, 52%);
+    --Very-dark-grayish-blue: hsl(217, 19%, 35%); 
+    --Very-dark-blackish-blue: hsl(219, 29%, 14%); 
+    --White: hsl(0, 0%, 100%);
+    --Light-gray: hsl(0, 0%, 81%); 
+    --Light-grayish-blue: hsl(210, 46%, 95%);
+
+
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    background: #ecf2f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(71px, 9.3vw, 164px) clamp(24px, 14.1vw, 165px);
+}
+
+/*main style */
+
+.wrapper {
+    overflow-x: clip;
+
+}
+
+.cards-container {
+    display: grid;
+    column-gap: 30px;
+    row-gap: 24px;
+    width: min(95%, 70rem);
+    height: 100%;
+    margin-inline: auto;
+    grid-template-columns: repeat(4, minmax(225px, 1fr));
+    grid-template-areas: 
+    'one one two four'
+    'three five five four'
+}
+
+@media screen and  (max-width: 1020px) {
+    .cards-container {
+        grid-template-columns: repeat(3, minmax(225px, 1fr));
+        grid-template-areas: 
+        'one one four'  
+        'two three four'
+        'five five five'
+    }
+    
+}
+
+@media screen and  (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: repeat(2, minmax(225px, 1fr));
+        grid-template-areas: 
+        'one one'  
+        'two four'
+        'three four'
+        'five five'
+    }
+    
+}
+
+@media screen and  (max-width: 520px) {
+    .cards-container {
+        grid-template-columns: repeat(1, minmax(225px, 1fr));
+        grid-template-areas: 
+        'one'  
+        'two'
+        'three'
+        'four'
+        'five'
+    }
+    
+}
+
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 26px 32px 32px 32px;
+    border-radius: 8px;
+    box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 0.25);
+    z-index: 1;
+    transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
+
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.1);
+    cursor: pointer;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .picture {
+    animation: spin 1s linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.picture {
+    width: 28px;
+    height: 28px;
+    border-radius: 28px;
+}
+
+.border-picture {
+    border: 2px solid #A775F1;
+}
+
+.info-text {
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 13px;
+}
+
+span {
+    color: #FFF;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 11px;
+    opacity: 0.5;
+}
+
+.dark-info-text {
+    color: #48556A;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 13px;
+}
+
+.dark-span {
+    color: #48556A;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 11px;
+    opacity: 0.5;
+}
+
+.heading-review {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 600; 
+    z-index: 999;
+}
+
+.dark-heading-review {
+    color: #48556A;
+    font-size: 20px;
+    font-weight: 600; 
+}
+
+.text-review {
+    color: #CFCFCF;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    opacity: 0.7;
+}
+
+.dark-text-review {
+    color: #48556A;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    opacity: 0.7;
+}
+
+
+.top-card {
+    margin-bottom: 16px;
+    display: flex;
+    gap: 17px;
+}
+
+.mid-card {
+    margin-bottom: 18px;
+}
+
+
+.purple {
+    background: var(--Moderate-violet);
+    position: relative;
+
+    grid-area: one;
+}
+
+.dark-grey {
+    background: var(--Very-dark-grayish-blue);
+
+    grid-area: two;
+}
+
+.white {
+    background: var(--White);
+}
+
+.white1 {
+
+    grid-area: four;
+}
+
+.white2 {
+
+    grid-area: three;
+}
+
+.dark-blue {
+    background: var(--Very-dark-blackish-blue);
+
+    grid-area: five;
+}
+
+
+svg {
+    position: absolute;
+    top: 0;
+    right: clamp(24px, 5.6vw, 80px);
+    width: 104px;
+    height: 102px;
+    z-index: -2;
+}
+
